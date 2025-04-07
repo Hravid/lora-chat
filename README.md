@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## ABOUT
 
-## Getting Started
+Web app that uses LoRa + ESP32 to chat with others the *safe* (?) way.
 
-First, run the development server:
+Hardware components required:
+1. ESP32
+2. LoRa module
+3. SD card reader module
+4. Antena 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ESP32 + LoRa + SD
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I just ordered - https://wiki.seeedstudio.com/wio_sx1262_with_xiao_esp32s3_kit/
+The second i receive package im gonna test range capabilities, probably gonna switch antena. Kit is super compact makes it super easy to carry in a bag.
+Probbaly gonna add GPS module to it.
+Right now messages are stored on SD card (currently 1 message for testing purposes).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## CODE
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## CONNECTING SD CARD TO ESP-WROOM-32
 
-To learn more about Next.js, take a look at the following resources:
+|ESP32|SD READER|
+|-----|---------|
+|3.3V |3.3V     |
+|GND  |GND      |
+|D5   |CS       |
+|D18  |MOSI     |
+|D19  |SCK      |
+|D23  |MISO     |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## TO-DO
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- message search engine
+- add login capabilities
+- create UI/UX
+- determine if contacts should be stored on server or sd card
+- data encryption
+- range tests
+- capability to transfer files other than text
+- add gps module
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
